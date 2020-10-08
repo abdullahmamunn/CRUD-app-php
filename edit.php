@@ -11,20 +11,20 @@
  include('dbConnection.php');
 
   $id = $_GET['id'];
-  $query = "SELECT * FROM book_info WHERE book_id = $id";
+  $query = "SELECT * FROM book_info WHERE id = $id";
   $result = mysqli_query($conn,$query);
 ?>
 
-    <div class="container bg-dark text-light" style="padding-top: 20px;padding-bottom: 20px;">
-    <h2 class="text-center">Eidt form</h2>
+    <div class="container bg-light text-dark" style="padding-top: 20px;padding-bottom: 20px;">
+    <h2 class="text-center">Edit form</h2>
 
     <div class="form-group">
       <form role="form" action="update.php" method="get">
       <?php
         while ($row = mysqli_fetch_assoc($result)) {
-        	
+
       ?>
-         <input type="hidden" name="bookid" value="<?php echo $row['book_id'];?>">
+         <input class="form-control" type="text" name="bookid" value="<?php echo $row['id'];?>">
         <div>
 
             <label>Book title</label>

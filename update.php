@@ -8,14 +8,14 @@
    $price  = $_GET['bookp'];
   
 
-   $query = "UPDATE book_info SET book_title = '$title',book_author = '$author', book_price = '$price' WHERE  book_id = '$bid'";
+   $query = "UPDATE book_info SET book_title = '$title',book_author = '$author', book_price = '$price' WHERE  id = '$bid'";
 
    if (mysqli_query($conn,$query)) {
    	
-   	     header("location:index.php");
+   	     header("location:index.php?update_msg=true");
    } else
    {
-   	echo "error";
+   	echo "error".mysqli_error($conn);
    }
    mysqli_close($conn);
 

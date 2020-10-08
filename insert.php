@@ -4,11 +4,12 @@
   $author = $_POST['booka'];
   $price  = $_POST['bookp'];
 
-  $query = "INSERT INTO book_info(book_title, book_author, book_price)
-            VALUES ('$title','$author','$price ')";
+  $query = "INSERT INTO book_info(book_title, book_author, book_price) VALUES ('$title','$author','$price ')";
 
             if (mysqli_query($conn,$query)) {
-            	header("location:index.php");
+                $msg = "Data save successfully!";
+            	header("location:index.php?msg=true");
+            	return $msg;
             } else
             {
             	echo "error";
